@@ -83,7 +83,7 @@ PYTHONPATH=.:src python src/test_pipeline.py
 The saved checkpoint evaluated on the included test split at the time this README was written produced:
 
 ```text
-Accuracy: 0.3885550396066648
+Accuracy: 0.3885550396066648 (Underfitted)
 Confusion Matrix (rows=true, cols=pred; class order: negative, neutral, positive)
 [[ 270  989  388]
  [ 418 1792  320]
