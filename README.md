@@ -1,4 +1,4 @@
-# Search Engine — MiniBERT Sentiment Analysis
+# MiniBERT Sentiment Analysis
 
 A small, modular NLP project that trains a custom Transformer encoder for Reddit-comment sentiment classification. Despite the repository name, its current implemented capability is **three-class sentiment analysis**, not document retrieval or search.
 
