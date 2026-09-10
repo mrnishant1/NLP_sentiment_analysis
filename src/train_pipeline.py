@@ -152,4 +152,4 @@ def load_n_resize_model_(model:MiniBERT,prev_loadstate_dict, old_word_to_id, new
     
 if __name__ == "__main__":
     mlm_loss_history,sentiment_loss_history = train_pipeline()
-    
+    print(mlm_loss_history,sentiment_loss_history)

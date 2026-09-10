@@ -11,6 +11,7 @@ def train_mlm(model, input_ids_all, epochs, batch_size, lr):
     loss_fn = nn.CrossEntropyLoss(ignore_index=-100)
     n = len(input_ids_all)
     loss_history = []
+    vocab_size = len(input_ids_all)
 
     for epoch in range(epochs):
         indices = np.random.permutation(n)
@@ -22,7 +23,7 @@ def train_mlm(model, input_ids_all, epochs, batch_size, lr):
 
             masked_batch, labels_batch = [], []
             for row in raw_batch:
-                m_ids, m_labels = mask_input_ids(row)
+                m_ids, m_labels = mask_input_ids(row,vocab_size)
                 masked_batch.append(m_ids)
                 labels_batch.append(m_labels)
 

@@ -83,11 +83,19 @@ PYTHONPATH=.:src python src/test_pipeline.py
 The saved checkpoint evaluated on the included test split at the time this README was written produced:
 
 ```text
-Accuracy: 0.3885550396066648 (Underfitted)
-Confusion Matrix (rows=true, cols=pred; class order: negative, neutral, positive)
-[[ 270  989  388]
- [ 418 1792  320]
- [ 647 1715  783]]
+Overfitted but it can be Reduced
+
+Train Accuracy: 0.9359057537988732
+Confusion Matrix (rows=true, cols=pred, order = [-1, 0, 1] -> [0,1,2]):
+[[ 6038   233   315]
+ [  391  9483   246]
+ [  500   192 11887]]
+
+Test Accuracy: 0.7608576891559683
+Confusion Matrix (rows=true, cols=pred, order = [-1, 0, 1] -> [0,1,2]):
+[[1018  208  421]
+ [ 188 2075  267]
+ [ 401  266 2478]]
 ```
 
 Run the example sentences in the inference script:
