@@ -79,10 +79,10 @@ class MiniBERT(nn.Module):
         self.register_buffer('pos_encoding', sinusoidal_positional_encoding(seq_len, d_model)) #register_buffer = register a buffer that should not be considered a model parameter
         self.encoder = EncoderBlock(n_heads, d_model, ff_hidden) #encoder --> returns bidirection contextual aware embeddings
         self.mlm_head = nn.Linear(d_model, vocab_size) #Neural layer for Sentiment fine-Tuning
-
+        
     def encode(self, input_ids):
         """input_ids: [batch, seq] (long) -> [batch, seq, d_model]"""
-        x = self.embedding(input_ids) + self.pos_encoding[: input_ids.shape[1]] #positional embeddings
+        x = nn.Dropout(0.1)(self.embedding(input_ids)) + self.pos_encoding[: input_ids.shape[1]] #positional embeddings
         return self.encoder(x) 
 
     def forward(self, input_ids):

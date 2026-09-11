@@ -1,7 +1,7 @@
 import torch
 from config import load_config,DEVICE,PROJECT_ROOT
 cfg = load_config()
-from components.model import MiniBERT,SentimentModel
+from ..components.model import MiniBERT,SentimentModel
  
 NUM_CLASSES = cfg["sentiment"]["num_classes"]
 vocab_path = f"{PROJECT_ROOT}/{cfg['paths']['vocab']}"
