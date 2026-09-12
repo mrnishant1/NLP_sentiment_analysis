@@ -1,8 +1,11 @@
+import os
+
 from .inference import inference,load_model_once
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "https://mrnishant1.github.io"}})
 load_model_once()
 
 @app.route('/', methods=['GET'])
@@ -24,5 +27,6 @@ def inference_from_model():
 
 
 if __name__ == '__main__':
-    app.run(debug=True,port=3000)
+    port = int(os.environ.get('PORT', 3000))
+    app.run(host='0.0.0.0', port=port)
     
